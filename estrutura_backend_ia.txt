@@ -1,0 +1,66 @@
+backend_ia
+├── comparativo_1754910040.md
+├── consultor.json
+├── data
+│   ├── campanha.json
+│   ├── exports
+│   ├── processd
+│   └── raw
+├── estrutura.txt
+├── orquestrador
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-313.pyc
+│   │   ├── main.cpython-313.pyc
+│   │   ├── routes.cpython-313.pyc
+│   │   ├── test_imagem.cpython-313-pytest-8.4.1.pyc
+│   │   ├── test_main.cpython-313-pytest-8.4.1.pyc
+│   │   └── test_main.cpython-313.pyc
+│   ├── agents
+│   │   ├── __pycache__
+│   │   │   ├── consultor_mercado.cpython-313.pyc
+│   │   │   ├── contrato.cpython-313.pyc
+│   │   │   ├── imagem.cpython-313.pyc
+│   │   │   ├── mkt.cpython-313.pyc
+│   │   │   ├── nft.cpython-313.pyc
+│   │   │   └── tutor.cpython-313.pyc
+│   │   ├── consultor_mercado.py
+│   │   ├── contrato.py
+│   │   ├── imagem.py
+│   │   ├── mkt.py
+│   │   ├── nft.py
+│   │   ├── sources
+│   │   │   ├── __init__.py
+│   │   │   └── inside_airbnb.py
+│   │   └── tutor.py
+│   ├── main.py
+│   ├── pytest.ini
+│   ├── routers
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── campanha.cpython-313.pyc
+│   │   │   ├── imagem_bridge.cpython-313.pyc
+│   │   │   └── mkt_bridge.cpython-313.pyc
+│   │   ├── campanha.py
+│   │   ├── imagem_bridge.py
+│   │   └── mkt_bridge.py
+│   ├── routes.py
+│   ├── schemas
+│   │   ├── __pycache__
+│   │   │   └── nft_schema.cpython-313.pyc
+│   │   └── nft_schema.py
+│   ├── services
+│   ├── test_imagem.py
+│   ├── test_main.py
+│   ├── test_payload_mkt_avancado.json
+│   └── utils
+│       ├── __pycache__
+│       │   ├── blockchain.cpython-313.pyc
+│       │   ├── ipfs.cpython-313.pyc
+│       │   └── pdf.cpython-313.pyc
+│       ├── blockchain.py
+│       ├── ipfs.py
+│       ├── paths.py
+│       └── pdf.py
+└── payload_imagem_nft.json

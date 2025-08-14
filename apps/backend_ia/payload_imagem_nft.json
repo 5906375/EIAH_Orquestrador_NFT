@@ -1,0 +1,39 @@
+
+{
+    "payload": {
+        "modo": "nft",
+        "imagem_referencia": "https://exemplo.com/ref.jpg",
+        "imovel": {
+            "tipo": "Casa na praia",
+            "localizacao": "Ilhabela"
+        },
+        "estilo": "3D clean",
+        "tema": "noite de verao",
+        "web3": "grade hexagonal sutil, token brilhante",
+        "compliance": {
+            "territory": "BR",
+            "rights_confirmed": true,
+            "third_party_brands": "bloquear/ocultar",
+            "disclaimers": [
+                "Imagens meramente ilustrativas.",
+                "Não constitui oferta de investimento."
+            ]
+        },
+        "mkt_context": {
+            "cta": "Desbloqueie upgrade exclusivo",
+            "claims_allowlist": [
+                "colecionável digital",
+                "acesso verificado on-chain"
+            ],
+            "keywords": [
+                "nft diarias",
+                "hospedagem web3"
+            ],
+            "claims_used": [
+                "colecionável digital"
+            ]
+        },
+        "only_prompt": true
+    }
+}
+

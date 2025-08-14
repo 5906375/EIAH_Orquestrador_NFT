@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agente MKT • Contratos (I/O)</title>
+    <style>
+        :root {
+            --bg: #0b0d12;
+            --card: #11141b;
+            --text: #e8ebf1;
+            --muted: #aeb5c6
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            background: #0b0d12;
+            color: var(--text)
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 32px auto;
+            padding: 0 20px 80px
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px
+        }
+
+        .nav a {
+            color: #cfe0ff;
+            background: #1a2233;
+            border: 1px solid #26324a;
+            border-radius: 999px;
+            padding: 6px 12px;
+            text-decoration: none
+        }
+
+        .card {
+            background: #11141b;
+            border: 1px solid #1b2333;
+            border-radius: 16px;
+            padding: 18px
+        }
+
+        pre {
+            margin: 0;
+            background: #0d1017;
+            border: 1px solid #1b2230;
+            color: #dfe7ff;
+            padding: 14px;
+            border-radius: 12px;
+            overflow: auto
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Agente MKT — Contratos (I/O)</h1>
+        <nav class="nav">
+            <a href="sequence.html">Sequência</a>
+            <a href="fluxoLogico.html">Fluxo Lógico</a>
+            <a href="componentes.html">Componentes</a>
+            <a href="contratos.html">Contratos (I/O)</a>
+            <a href="regras.html">Regras Operacionais</a>
+            <a href="integracoes.html">Integrações</a>
+        </nav>
+
+        <div class="card">
+            <h3>Request (POST /mkt/preview)</h3>
+            <pre>{
+  "payload": {
+    "imovel": {
+      "tipo": "Apartamento vista mar",
+      "localizacao": "Balneário Camboriú",
+      "amenidades": ["Wi-Fi 500Mb", "Piscina", "Academia"],
+      "extras": ["Late checkout", "NFT de upgrade"]
+    },
+    "contexto_mercado": {
+      "cidade": "Balneário Camboriú",
+      "periodo": "2025-11-01 a 2025-11-07",
+      "demanda": "baixa",
+      "eventos": ["Festival de música"],
+      "clima": "Ensolarado",
+      "preco_medio_competidores": 320
+    },
+    "preferencias": {
+      "idioma": "pt",
+      "persona": "luxo",
+      "canais_alvo": ["instagram", "google_ads"],
+      "seo": {"keywords_primarias": ["diária NFT Balneário Camboriú"]},
+      "cta": "Desbloqueie upgrade exclusivo",
+      "ab_variants": 2,
+      "utm_base": "utm_source=social&utm_medium=paid&utm_campaign=nftdiarias"
+    },
+    "promocao": {"ativa": true, "detalhes": "10% OFF até 20/11"},
+    "only_json": true
+  }
+}</pre>
+        </div>
+
+        <div class="card">
+            <h3>Response (modo avançado)</h3>
+            <pre>{
+  "titulo_nft": "Experiência Apartamento vista mar em Balneário Camboriú",
+  "descricao_longa": "... mínimo 100 palavras com CTA e condições ...",
+  "hashtags_social": ["#viagemdeluxo", "#hospedagempremium", "#turismo"],
+  "tags_mercado": ["NFT", "Turismo", "Hospedagem", "Blockchain", "Apartamento vista mar"],
+  "seo": {
+    "keywords_primarias": ["diária NFT Balneário Camboriú"],
+    "keywords_secundarias": [],
+    "meta_description": "... até 160 caracteres ..."
+  },
+  "variacoes_por_canal": {
+    "instagram": {"post": "... até ~150 caracteres + 5–8 hashtags ..."},
+    "google_ads": {
+      "headlines": ["Reserva NFT Verificada", "Upgrade Exclusivo", "..."],
+      "descriptions": ["... <= 90 chars ...", "... <= 90 chars ..."]
+    }
+  },
+  "utm": "utm_source=social&utm_medium=paid&utm_campaign=nftdiarias"
+}</pre>
+        </div>
+
+        <div class="card">
+            <h3>Response (modo simples)</h3>
+            <pre>{
+  "agente": "mkt",
+  "status": "ativo",
+  "mensagem": "Peça gerada (modo simples).",
+  "conteudo": {
+    "headline": "Transforme suas diárias com NFTs e check-in digital.",
+    "corpo": "...",
+    "publico": "geral",
+    "tom": "informativo",
+    "idioma": "pt-BR",
+    "cta": "Garanta sua diária NFT"
+  },
+  "timestamp": "2025-08-13T12:34:56Z"
+}</pre>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agente MKT • Regras Operacionais</title>
+    <style>
+        :root {
+            --bg: #0b0d12;
+            --card: #11141b;
+            --text: #e8ebf1
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            background: #0b0d12;
+            color: var(--text)
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 32px auto;
+            padding: 0 20px 80px
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px
+        }
+
+        .nav a {
+            color: #cfe0ff;
+            background: #1a2233;
+            border: 1px solid #26324a;
+            border-radius: 999px;
+            padding: 6px 12px;
+            text-decoration: none
+        }
+
+        .card {
+            background: #11141b;
+            border: 1px solid #1b2333;
+            border-radius: 16px;
+            padding: 18px
+        }
+
+        li {
+            margin: 6px 0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Agente MKT — Regras Operacionais</h1>
+        <nav class="nav">
+            <a href="sequence.html">Sequência</a>
+            <a href="fluxoLogico.html">Fluxo Lógico</a>
+            <a href="componentes.html">Componentes</a>
+            <a href="contratos.html">Contratos (I/O)</a>
+            <a href="regras.html">Regras Operacionais</a>
+            <a href="integracoes.html">Integrações</a>
+        </nav>
+        <div class="card">
+            <ul>
+                <li><b>Idempotência</b>: mesmo payload → mesma saída (cache/rollback).</li>
+                <li><b>Fallback</b>: sem <code>imovel</code> ⇒ modo simples.</li>
+                <li><b>SEO</b>: usar <code>keywords_primarias</code> no título/primeiro parágrafo; gerar
+                    <code>meta_description ≤ 160</code>.</li>
+                <li><b>Compliance</b>: não prometer retorno financeiro; promoções com condições claras.</li>
+                <li><b>Multicanal</b>: gerar variações quando <code>preferencias.canais_alvo</code> presente.</li>
+                <li><b>Observabilidade</b>: logar request/response no <b>J_360</b> (latência, sucesso/erro).</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

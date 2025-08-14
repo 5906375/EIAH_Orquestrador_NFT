@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluxo UML – Agente MKT (EIAH Orquestrador)</title>
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #11141b;
+      --text: #e8ebf1;
+      --muted: #aeb5c6;
+      --accent: #7aa2ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: linear-gradient(180deg, #0a0d13, #0b0d12 70%);
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-end;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0;
+      letter-spacing: .3px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #1a2233;
+      color: #cfe0ff;
+      font-weight: 600;
+      font-size: 12px;
+      border: 1px solid #26324a;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #1b2333;
+      border-radius: 18px;
+      padding: 18px 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      margin: 16px 0 26px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 0 0 10px;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin: 22px 0 8px;
+      color: var(--muted);
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 6px 0 14px;
+    }
+
+    pre {
+      margin: 0;
+      background: #0d1017;
+      border: 1px solid #1b2230;
+      color: #dfe7ff;
+      padding: 14px;
+      border-radius: 12px;
+      overflow: auto;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+    }
+
+    .mermaid {
+      background: #0d1017;
+      border: 1px solid #1b2230;
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media(min-width:980px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+  <!-- Mermaid.js -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      securityLevel: 'loose',
+      flowchart: { htmlLabels: true }   // <— habilita <br/> nos labels do flowchart
+    });
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Fluxo UML – Agente MKT (EIAH Orquestrador)</h1>
+      <span class="tag">docs • preview</span>
+    </header>
+
+    <div class="card">
+      <div class="note">Visão técnica de como o <strong>Agente MKT</strong> recebe dados, processa e integra-se com os
+        demais componentes (AI Booking Optimizer, J_360 e Agente Multicanal).</div>
+      <div class="grid">
+        <div>
+          <h2>1) Diagrama de Sequência</h2>
+          <div class="mermaid">
+            sequenceDiagram
+            autonumber
+            actor User as Usuário/Frontend (Dashboard)
+            participant FE as Frontend Web/App
+            participant API as FastAPI (/mkt/preview)
+            participant MKT as Agent MKT (mkt.py)
+            participant SVC as Services (coletores/sinais)*
+            participant MC as Agente Multicanal
+            participant J360 as J_360 (Analytics/Logs)
+
+            Note over SVC: *Opcional – quando já houver coletores
+
+            User->>FE: Configura campanha / seleciona imóvel
+            FE->>API: POST /mkt/preview {payload}
+            API->>MKT: executar(payload)
+            alt payload.only_json == true (modo avançado)
+            MKT->>MKT: Monta título/descrição/hashtags/tags
+            par Inputs
+            MKT-->>SVC: (opcional) buscar contexto_mercado
+            SVC-->>MKT: sinais (demanda, eventos, clima)
+            and SEO & Variações
+            MKT->>MKT: SEO (meta/keywords) + variações por canal
+            end
+            MKT-->>API: JSON final (mkt_json)
+            else (modo simples / fallback)
+            MKT-->>API: {headline, corpo, ...}
+            end
+            API-->>FE: Resposta HTTP 200 (conteúdo gerado)
+            API->>J360: Loga evento (req/resp, métricas)
+            API->>MC: (opcional) Dispara distribuição de peças
+          </div>
+        </div>
+        <div>
+          <h2>2) Fluxo Lógico</h2>
+          <div class="mermaid">
+            flowchart LR
+            A[Receber payload /mkt/preview] --> B{Tem imovel?}
+            B -- Não --> B1[Gerar peça modo simples]
+            B1 --> Z[Responder]
+            B -- Sim --> C{only_json == true?}
+            C -- Sim --> D[Gerar mkt_json<br />(título, descrição, hashtags, tags)]
+            D --> E[SEO/meta + variações por canal]
+            E --> F[(Opcional) sinais externos<br />(demanda, eventos, clima)]
+            F --> Z[Responder]
+            C -- Não --> G[Responder wrapper com conteudo.mkt_json]
+            G --> Z
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Componentes</h2>
+      <div class="mermaid">
+        graph TD
+        subgraph Frontend
+        FE[Dashboard/Console]
+        end
+        subgraph Orquestrador (FastAPI)
+        RT[/Router: mkt_bridge.py/]
+        MKT[[Agente MKT: mkt.py]]
+        UTILS[(utils: paths, ipfs, pdf, blockchain)]
+        end
+        subgraph Dados/Serviços
+        DATA[(data/raw|processed|exports)]
+        SVC[(services: collectors, features, signals)]
+        J360[(J_360: analytics/logs)]
+        MC[(Agente Multicanal: e-mail, WhatsApp, social)]
+        end
+
+        FE --> RT --> MKT
+        MKT -. opcional .-> SVC --> DATA
+        RT --> J360
+        RT -. opcional .-> MC
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Contratos (I/O)</h2>
+      <h3>4.1 Request (modo avançado – recomendado)</h3>
+      <pre><code>{
+  "payload": {
+    "imovel": {
+      "tipo": "Apartamento vista mar",
+      "localizacao": "Balneário Camboriú",
+      "amenidades": ["Wi-Fi 500Mb", "Piscina", "Academia"],
+      "extras": ["Late checkout", "NFT de upgrade"]
+    },
+    "contexto_mercado": {
+      "cidade": "Balneário Camboriú",
+      "periodo": "2025-11-01 a 2025-11-07",
+      "demanda": "baixa",
+      "eventos": ["Festival de música"],
+      "clima": "Ensolarado",
+      "preco_medio_competidores": 320
+    },
+    "preferencias": {
+      "idioma": "pt",
+      "persona": "luxo",
+      "canais_alvo": ["instagram", "google_ads"],
+      "seo": {"keywords_primarias": ["diária NFT Balneário Camboriú"]},
+      "cta": "Desbloqueie upgrade exclusivo",
+      "ab_variants": 2,
+      "utm_base": "utm_source=social&utm_medium=paid&utm_campaign=nftdiarias"
+    },
+    "promocao": {"ativa": true, "detalhes": "10% OFF até 20/11"},
+    "only_json": true
+  }
+}</code></pre>
+
+      <h3>4.2 Response (modo avançado)</h3>
+      <pre><code>{
+  "titulo_nft": "Experiência Apartamento vista mar em Balneário Camboriú",
+  "descricao_longa": "... mínimo 100 palavras com CTA e condições ...",
+  "hashtags_social": ["#viagemdeluxo", "#hospedagempremium", "#turismo"],
+  "tags_mercado": ["NFT", "Turismo", "Hospedagem", "Blockchain", "Apartamento vista mar"],
+  "seo": {
+    "keywords_primarias": ["diária NFT Balneário Camboriú"],
+    "keywords_secundarias": [],
+    "meta_description": "... até 160 caracteres ..."
+  },
+  "variacoes_por_canal": {
+    "instagram": {"post": "... até ~150 caracteres + 5–8 hashtags ..."},
+    "google_ads": {
+      "headlines": ["Reserva NFT Verificada", "Upgrade Exclusivo", "..."],
+      "descriptions": ["... <= 90 chars ...", "... <= 90 chars ..."]
+    }
+  },
+  "utm": "utm_source=social&utm_medium=paid&utm_campaign=nftdiarias"
+}</code></pre>
+
+      <h3>4.3 Response (modo simples)</h3>
+      <pre><code>{
+  "agente": "mkt",
+  "status": "ativo",
+  "mensagem": "Peça gerada (modo simples).",
+  "conteudo": {
+    "headline": "Transforme suas diárias com NFTs e check-in digital.",
+    "corpo": "...",
+    "publico": "geral",
+    "tom": "informativo",
+    "idioma": "pt-BR",
+    "cta": "Garanta sua diária NFT"
+  },
+  "timestamp": "2025-08-13T12:34:56Z"
+}</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>5) Regras Operacionais</h2>
+      <ul>
+        <li><strong>Idempotência</strong>: mesmo payload ⇒ mesma saída (útil para cache/rollback).</li>
+        <li><strong>Fallback</strong>: sem <code>imovel</code> ⇒ modo simples.</li>
+        <li><strong>SEO</strong>: usar <code>keywords_primarias</code> no título/primeiro parágrafo; gerar
+          <code>meta_description ≤160</code>.</li>
+        <li><strong>Compliance</strong>: sem promessas de retorno; promoções com condições claras.</li>
+        <li><strong>Multicanal</strong>: gerar variações quando <code>preferencias.canais_alvo</code> presente.</li>
+        <li><strong>Observabilidade</strong>: logar request/response no <strong>J_360</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>6) Integrações</h2>
+      <ul>
+        <li><strong>AI Booking Optimizer</strong>: injeta <code>contexto_mercado</code> (demanda/eventos/clima).</li>
+        <li><strong>Agente Multicanal</strong>: publica o <code>mkt_json</code> em WhatsApp, e-mail, social.</li>
+        <li><strong>J_360</strong>: registra métricas e resultados de campanhas.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Rodapé</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <div class="mx-auto max-w-4xl px-4 py-10 space-y-8">
+
+        <div class="flex items-center justify-between gap-4">
+            <h1 class="text-2xl font-bold">Admin • Rodapé</h1>
+            <a href="/admin/campanha">
+                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md text-sm">
+                    Gerenciar Campanha
+                </button>
+            </a>
+        </div>
+
+        <section class="grid gap-4 rounded-2xl border bg-white p-5">
+            <div class="flex items-center justify-between gap-4">
+                <div>
+                    <h2 class="font-semibold">Campanha (Social)</h2>
+                    <p class="text-sm text-gray-600">
+                        Consulte e altere o status da campanha (calendário, responsáveis e publicações).
+                    </p>
+                </div>
+                <a href="/admin/campanha">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md">
+                        Gerenciar Campanha
+                    </button>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                <div class="rounded-xl border p-3">
+                    <div class="text-xs text-gray-500">Total</div>
+                    <div class="text-xl font-bold">...</div>
+                </div>
+                <div class="rounded-xl border p-3">
+                    <div class="text-xs text-gray-500">Planejado</div>
+                    <div class="text-xl font-bold">...</div>
+                </div>
+                <div class="rounded-xl border p-3">
+                    <div class="text-xs text-gray-500">Em produção</div>
+                    <div class="text-xl font-bold">...</div>
+                </div>
+                <div class="rounded-xl border p-3">
+                    <div class="text-xs text-gray-500">Aprovado</div>
+                    <div class="text-xl font-bold">...</div>
+                </div>
+                <div class="rounded-xl border p-3">
+                    <div class="text-xs text-gray-500">Publicado</div>
+                    <div class="text-xl font-bold">...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid gap-4 rounded-2xl border bg-white p-5">
+            <h2 class="font-semibold">Institucional</h2>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">Nome da empresa</span>
+                <input class="rounded-md border px-3 py-2" value="Nome da Empresa S.A." />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">E-mail</span>
+                <input class="rounded-md border px-3 py-2" value="contato@empresa.com" />
+            </label>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="grid gap-1">
+                    <span class="text-sm text-gray-600">Telefone</span>
+                    <input class="rounded-md border px-3 py-2" value="(99) 9999-9999" />
+                </label>
+                <label class="grid gap-1">
+                    <span class="text-sm text-gray-600">WhatsApp (apenas números)</span>
+                    <input class="rounded-md border px-3 py-2" value="5599999999999" />
+                </label>
+            </div>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">Endereço</span>
+                <input class="rounded-md border px-3 py-2" value="Rua Exemplo, 123, Cidade - Estado" />
+            </label>
+        </section>
+
+        <section class="grid gap-4 rounded-2xl border bg-white p-5">
+            <h2 class="font-semibold">Links rápidos</h2>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">PLANOS</span>
+                <input class="rounded-md border px-3 py-2" value="/planos" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">TERMOS</span>
+                <input class="rounded-md border px-3 py-2" value="/termos" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">PRIVACIDADE</span>
+                <input class="rounded-md border px-3 py-2" value="/privacidade" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">CANCELAMENTO</span>
+                <input class="rounded-md border px-3 py-2" value="/cancelamento" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">KYC</span>
+                <input class="rounded-md border px-3 py-2" value="/kyc" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">SUPORTE</span>
+                <input class="rounded-md border px-3 py-2" value="/suporte" />
+            </label>
+        </section>
+
+        <section class="grid gap-4 rounded-2xl border bg-white p-5">
+            <h2 class="font-semibold">Redes sociais</h2>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">SITE</span>
+                <input class="rounded-md border px-3 py-2" placeholder="https://..." value="https://www.empresa.com" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">INSTAGRAM</span>
+                <input class="rounded-md border px-3 py-2" placeholder="https://..."
+                    value="https://instagram.com/empresa" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">X</span>
+                <input class="rounded-md border px-3 py-2" placeholder="https://..." value="https://x.com/empresa" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">LINKEDIN</span>
+                <input class="rounded-md border px-3 py-2" placeholder="https://..."
+                    value="https://linkedin.com/company/empresa" />
+            </label>
+            <label class="grid gap-1">
+                <span class="text-sm text-gray-600">YOUTUBE</span>
+                <input class="rounded-md border px-3 py-2" placeholder="https://..."
+                    value="https://youtube.com/empresa" />
+            </label>
+        </section>
+
+        <div class="flex gap-3">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md">
+                Salvar
+            </button>
+            <button class="bg-gray-200 text-gray-800 hover:bg-gray-300 font-medium py-2 px-4 rounded-md">
+                Restaurar padrão
+            </button>
+        </div>
+    </div>
+
+</body>
+
+</html>

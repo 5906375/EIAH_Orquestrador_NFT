@@ -1,0 +1,40 @@
+backend_ia
+├── .env
+├── comparativo_1754910040.md
+├── consultor.json
+├── data
+│   ├── exports
+│   ├── processd
+│   └── raw
+├── estrutura.txt
+└── orquestrador
+    ├── __init__.py
+    ├── agents
+    │   ├── consultor_mercado.py
+    │   ├── contrato.py
+    │   ├── imagem.py
+    │   ├── mkt.py
+    │   ├── nft.py
+    │   ├── sources
+    │   │   ├── __init__.py
+    │   │   └── inside_airbnb.py
+    │   └── tutor.py
+    ├── main.py
+    ├── pytest.ini
+    ├── routers
+    │   ├── __init__.py
+    │   ├── campanha.py
+    │   ├── imagem_bridge.py
+    │   └── mkt_bridge.py
+    ├── routes.py
+    ├── schemas
+    │   └── nft_schema.py
+    ├── services
+    ├── test_imagem.py
+    ├── test_main.py
+    ├── test_payload_mkt_avancado.json
+    └── utils
+        ├── blockchain.py
+        ├── ipfs.py
+        ├── paths.py
+        └── pdf.py

@@ -1,0 +1,48 @@
+{
+    "payload": {
+        "imovel": {
+            "tipo": "Apartamento vista mar",
+            "localizacao": "Balneário Camboriú",
+            "amenidades": [
+                "Wi-Fi 500Mb",
+                "Piscina",
+                "Academia"
+            ],
+            "extras": [
+                "Late checkout",
+                "NFT de upgrade"
+            ]
+        },
+        "contexto_mercado": {
+            "cidade": "Balneário Camboriú",
+            "periodo": "2025-11-01 a 2025-11-07",
+            "demanda": "baixa",
+            "eventos": [
+                "Festival de música"
+            ],
+            "clima": "Ensolarado",
+            "preco_medio_competidores": 320
+        },
+        "preferencias": {
+            "idioma": "pt",
+            "persona": "luxo",
+            "canais_alvo": [
+                "instagram",
+                "google_ads"
+            ],
+            "seo": {
+                "keywords_primarias": [
+                    "diária NFT Balneário Camboriú"
+                ]
+            },
+            "cta": "Desbloqueie upgrade exclusivo",
+            "ab_variants": 2,
+            "utm_base": "utm_source=social&utm_medium=paid&utm_campaign=nftdiarias"
+        },
+        "promocao": {
+            "ativa": true,
+            "detalhes": "10% OFF até 20/11"
+        },
+        "only_json": true
+    }
+}

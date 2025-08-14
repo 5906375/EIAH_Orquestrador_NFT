@@ -1,0 +1,72 @@
+frontend
+├── README.md
+├── eslint.config.js
+├── estrutura.txt
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── AudioGuia.tsx
+│   │   ├── EtapaCadastro
+│   │   │   ├── CadastroGuia.tsx
+│   │   │   ├── EtapaPropriedade.tsx
+│   │   │   ├── EtapaProprietario.tsx
+│   │   │   └── EtapaRegras.tsx
+│   │   ├── Home
+│   │   │   ├── BeneficiosSection.tsx
+│   │   │   ├── ComoFuncionaSection.tsx
+│   │   │   ├── CtaSection.tsx
+│   │   │   ├── HeroSection.tsx
+│   │   │   └── ListagensSection.tsx
+│   │   ├── Modals
+│   │   │   └── CancelPolicyModal.tsx
+│   │   ├── TutorOnboarding.tsx
+│   │   └── ui
+│   │       ├── Footer.tsx
+│   │       ├── PerguntasAntesDeEmitir.tsx
+│   │       └── button.tsx
+│   ├── context
+│   │   ├── TutorContext.tsx
+│   │   ├── Web3Context.tsx
+│   │   └── useTutorContext.ts
+│   ├── index.css
+│   ├── lib
+│   │   ├── ReciboNFT.tsx
+│   │   └── utils.ts
+│   ├── main.tsx
+│   ├── pages
+│   │   ├── ConfirmacaoNFT.tsx
+│   │   ├── EmitirNFTDiarias.tsx
+│   │   ├── EmitirNFTForm.tsx
+│   │   ├── EmitirNFTOrquestrado.tsx
+│   │   ├── Home.tsx
+│   │   ├── Legal
+│   │   │   ├── CancelPolicy.tsx
+│   │   │   ├── KycPolicy.tsx
+│   │   │   ├── Privacy.tsx
+│   │   │   └── Terms.tsx
+│   │   ├── PainelTutor.tsx
+│   │   ├── PainelUsuario.tsx
+│   │   └── Planos.tsx
+│   ├── types
+│   │   └── global.d.ts
+│   ├── utils
+│   │   ├── CepApi.ts
+│   │   ├── api.ts
+│   │   ├── legal.ts
+│   │   ├── verificarCadastro.ts
+│   │   └── voice.ts
+│   └── vite-env.d.ts
+├── tailwind.config.js
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts

@@ -1,0 +1,5 @@
+# backend_ia/.gitignore
+data/raw/*
+data/processed/*
+data/exports/*
+!data/.gitkeep

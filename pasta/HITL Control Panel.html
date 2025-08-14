@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HITL Control Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800">
+
+  <section class="py-20 px-6 max-w-6xl mx-auto text-center">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">HITL Control Panel</h1>
+    <p class="text-xl md:text-2xl text-gray-600">
+      Orquestrador de Agentes com Validação Humana
+    </p>    
+    </div>
+  </section>
+
+  
+
+<section class="py-16 px-6 bg-transparent">
+
+    <!-- Título -->
+    <div class="max-w-6xl mx-auto text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Benefícios C-Level</h2>
+    </div>
+
+    <!-- Container com borda e conteúdo -->
+    <div
+        class="max-w-7xl mx-auto border border-gray-300 rounded-xl ring-1 ring-gray-200 shadow-sm p-8 flex flex-col lg:flex-row items-center gap-12 bg-white/10 backdrop-blur-sm">
+
+        <!-- Imagem dos C-Levels -->
+        <div class="flex-shrink-0 w-full lg:w-1/2 flex justify-center">
+            <img src="CEO_1.png" alt="C-Levels com IA" class="max-w-xs md:max-w-md w-full h-auto" />
+        </div>
+
+        <!-- Texto dos C-Levels -->
+        <div class="w-full lg:w-1/2 space-y-6 text-gray-800 text-lg md:text-xl">
+            <p>👔 <strong>CEO - </strong> Escale com segurança sem perder o controle.</p>
+            <p>⚖️ <strong>CLO - </strong> Garante conformidade jurídica.</p>
+            <p>📣 <strong>CMO - </strong> Aprova linguagem e ofertas da IA conforme identidade da marca.</p>
+            <p>💻 <strong>CTO - </strong> Integra facilmente com seu stack técnico e agentes neural.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="bg-gray-50 py-16 px-6">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-10 text-center text-gray-900">Casos de Uso Reais</h2>
+        <!-- Container com borda e conteúdo -->
+        <div
+            class="max-w-7xl mx-auto border border-gray-300 rounded-xl ring-1 ring-gray-200 shadow-sm p-8 flex flex-col lg:flex-row items-center gap-12 bg-white/10 backdrop-blur-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+            <!-- Jurídico -->
+            <div class="bg-white shadow p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">⚖️ Jurídico</h3>
+                <p class="text-gray-700 text-sm">Valide contratos gerados por IA com cláusulas sensíveis antes da
+                    assinatura.</p>
+            </div>
+
+            <!-- Imobiliário / Web3 -->
+            <div class="bg-white shadow p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">🏘️ Imobiliário / Web3</h3>
+                <p class="text-gray-700 text-sm">Aprove os dados antes de emitir NFTs de hospedagem ou imóveis.</p>
+            </div>
+
+            <!-- Marketing -->
+            <div class="bg-white shadow p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">📣 Marketing</h3>
+                <p class="text-gray-700 text-sm">Revisão de campanhas geradas por IA antes da publicação automática.</p>
+            </div>
+
+            <!-- Administrativo -->
+            <div class="bg-white shadow p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">🗂️ Administrativo</h3>
+                <p class="text-gray-700 text-sm">Supervisione geração automática de atas, relatórios e documentos
+                    internos com revisão final.</p>
+            </div>
+
+            <!-- Financeiro -->
+            <div class="bg-white shadow p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">💰 Financeiro</h3>
+                <p class="text-gray-700 text-sm">Acompanhe relatórios de IA e aprove lançamentos contábeis antes da
+                    consolidação.</p>
+            </div>
+
+            <!-- Setor Público -->
+            <div class="bg-white shadow p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">🏛️ Setor Público</h3>
+                <p class="text-gray-700 text-sm">Valide documentos oficiais gerados por IA em conformidade com leis e
+                    normas.</p>
+            </div>
+
+            <!-- Educação -->
+            <div class="bg-white shadow p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-2">🎓 Educação</h3>
+                <p class="text-gray-700 text-sm">Revise e aprove planos de aula, ementas ou feedbacks automatizados
+                    produzidos por IA.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="bg-white py-16 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Testar Agentes IA</h2>
+        <div class="flex flex-wrap justify-center gap-4 mb-4">
+            <button onclick="executarAgente('contrato')"
+                class="bg-indigo-600 text-white px-5 py-2 rounded-xl hover:bg-indigo-700">⚖️ Contrato</button>
+            <button onclick="executarAgente('imagem')"
+                class="bg-pink-600 text-white px-5 py-2 rounded-xl hover:bg-pink-700">🖼️ Imagem</button>
+            <button onclick="executarAgente('nft')"
+                class="bg-green-600 text-white px-5 py-2 rounded-xl hover:bg-green-700">🪙 NFT</button>
+            <button onclick="executarAgente('mkt')"
+                class="bg-yellow-600 text-white px-5 py-2 rounded-xl hover:bg-yellow-700">📢 Marketing</button>
+            <button onclick="executarAgente('tutor')"
+                class="bg-blue-600 text-white px-5 py-2 rounded-xl hover:bg-blue-700">🎙️ Tutor IA</button>
+
+            <div class="mt-8 space-y-2">
+                <p class="text-lg text-gray-700">Precisa integrar novos agentes personalizados?</p>
+                <button class="px-6 py-2 bg-green-600 text-white rounded-xl">+ Adicionar novo agente</button>
+        </div>
+        <pre id="resultado" class="bg-gray-100 text-left text-sm p-4 rounded-xl overflow-auto max-h-80"></pre>
+    </div>
+</section>
+
+<script>
+    async function conectarMetaMask() {
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                const contas = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                alert('✅ Carteira conectada:\n' + contas[0]);
+            } catch (erro) {
+                alert('❌ Conexão recusada: ' + erro.message);
+            }
+        } else {
+            alert('🚫 MetaMask não está instalado. Acesse https://metamask.io');
+        }
+    }
+
+    async function executarAgente(agente) {
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.textContent = '⏳ Executando agente: ' + agente + '...';
+
+        try {
+            const resposta = await fetch(`http://localhost:8000/executar/${agente}`);
+            const dados = await resposta.json();
+            resultadoDiv.textContent = JSON.stringify(dados, null, 2);
+        } catch (erro) {
+            resultadoDiv.textContent = '❌ Erro ao executar o agente: ' + erro;
+        }
+    }
+</script>
+
+
+  <section class="bg-blue-50 py-16 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold mb-6">Planos e Preços</h2>
+      <table class="w-full table-auto border border-gray-300">
+        <thead class="bg-blue-100">
+          <tr>
+            <th class="p-3 border">Plano</th>
+            <th class="p-3 border">Agentes Inclusos</th>
+            <th class="p-3 border">Validações/Mês</th>
+            <th class="p-3 border">Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-3 border">Starter</td>
+            <td class="p-3 border">3 agentes</td>
+            <td class="p-3 border">50</td>
+            <td class="p-3 border">R$ 499</td>
+          </tr>
+          <tr>
+            <td class="p-3 border">Pro</td>
+            <td class="p-3 border">6 agentes</td>
+            <td class="p-3 border">200</td>
+            <td class="p-3 border">R$ 999</td>
+          </tr>
+          <tr>
+            <td class="p-3 border">Enterprise</td>
+            <td class="p-3 border">Ilimitado</td>
+            <td class="p-3 border">Ilimitado</td>
+            <td class="p-3 border">Sob consulta</td>
+          </tr>
+        </tbody>
+      </table>
+
+        <p class="text-md text-gray-700 mt-4">
+            Pagamento disponível via criptomoeda com MetaMask ou tokens de acesso.
+            <span onclick="conectarMetaMask()" class="text-yellow-600 font-semibold cursor-pointer hover:underline">Conectar
+                Carteira</span>
+        </p>
+      </div>
+    </div>
+  </section>
+<div class="mt-8 flex flex-col md:flex-row justify-center gap-4 items-stretch">
+    <a href="https://wa.me/5547999674434?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20HITL%20%E2%80%93%20uma%20solu%C3%A7%C3%A3o%20inovadora%20onde%20atuo%20como%20o%20%C3%BAnico%20humano%20em%20um%20ecossistema%20de%20agentes%20IA%20aut%C3%B4nomos."
+        target="_blank"
+        class="flex-1 min-w-[200px] text-lg px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 text-center transition">
+        💬 Solicitar via WhatsApp
+    </a>
+
+
+    <a href="https://www.carlos-alberto-merlo.com/booking-calendar/consultoria-t%C3%A9cnica?referral=service_list_widget"
+        target="_blank"
+        class="flex-1 min-w-[200px] text-lg px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-center transition">
+        📅 Agendar Demonstração
+    </a>
+
+    
+</div>
+
+  <footer class="py-10 text-center text-sm text-gray-500">
+    Desenvolvido por Carlos Alberto Merlo • HITL Orquestrador EIAH 2025
+  </footer>
+
+  <!-- Script de conexão com MetaMask -->
+  <script>
+    async function conectarMetaMask() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const contas = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          alert('✅ Carteira conectada:\n' + contas[0]);
+        } catch (erro) {
+          alert('❌ Conexão recusada: ' + erro.message);
+        }
+      } else {
+        alert('🚫 MetaMask não está instalado. Acesse https://metamask.io para instalar.');
+      }
+    }
+  </script>
+
+</body>
+
+</html>
